@@ -1,0 +1,19 @@
+{
+  "name": "nlcst-normalize",
+  "version": "0.0.0",
+  "description": "Normalize a word for easier comparison",
+  "license": "MIT",
+  "keywords": [
+    "normalize",
+    "nlcst",
+    "retext",
+    "utility"
+  ],
+  "repository": "wooorm/nlcst-normalize",
+  "dependencies": {
+    "wooorm/nlcst-to-string": "^1.1.0"
+  },
+  "scripts": [
+    "index.js"
+  ]
+}
