@@ -21,6 +21,7 @@ var normalize = require('nlcst-normalize');
 normalize('Don’t'); // 'dont'
 normalize('Don\'t'); // 'dont'
 normalize('Block-level'); // 'blocklevel'
+normalize('Don’t', true); // 'don\'t'
 
 normalize({
     'type': 'WordNode',
@@ -43,14 +44,17 @@ normalize({
 
 ## API
 
-### `normalize(value)`
+### `normalize(value[, allowApostrophes])`
 
 Quote a value.
 
 **Parameters**
 
 *   `value` ([`Node`][nlcst-node], `Array.<Node>`, or `string`)
-    — Value to normalize.
+    — Value to normalize;
+
+*   `allowApostrophes` (`boolean`, default: `false`)
+    — Do not strip apostrophes (but do normalize them).
 
 **Returns**: `string` — Normalized value.
 

@@ -21,7 +21,7 @@ var normalize = require('./');
  * Tests.
  */
 
-test('normalize(value)', function (t) {
+test('normalize(value, allowApostrophes)', function (t) {
     t.throws(
         function () {
             normalize(true);
@@ -150,6 +150,12 @@ test('normalize(value)', function (t) {
         ]),
         'blocklevel',
         'should normalize multiple nodes'
+    );
+
+    t.equal(
+        normalize('he’ll', true),
+        'he\'ll',
+        'should normalize apostrophes when specified'
     );
 
     t.end();

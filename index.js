@@ -20,19 +20,31 @@ var toString = require('nlcst-to-string');
  * Constants.
  */
 
-var EXPRESSION_REMOVE = /['’-]/g;
+var ALL = /[-'’]/g;
+var DASH = /-/g;
+var APOSTROPHE = /’/g;
+var QUOTE = '\'';
 var EMPTY = '';
 
 /**
  * Normalize `value`.
  *
  * @param {string} value - Value to normalize.
+ * @param {boolean} allowApostrophes - Do not strip
+ *   apostrophes.
  * @return {string} - Normalized `value`.
  */
-function normalize(value) {
-    return (typeof value === 'string' ? value : toString(value))
-        .toLowerCase()
-        .replace(EXPRESSION_REMOVE, EMPTY);
+function normalize(value, allowApostrophes) {
+    var result = (typeof value === 'string' ? value : toString(value))
+        .toLowerCase();
+
+    if (allowApostrophes) {
+        return result
+            .replace(APOSTROPHE, QUOTE)
+            .replace(DASH, EMPTY);
+    }
+
+    return result.replace(ALL, EMPTY);
 }
 
 /*
