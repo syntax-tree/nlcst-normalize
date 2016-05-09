@@ -44,7 +44,7 @@ normalize({
 
 ## API
 
-### `normalize(value[, allowApostrophes])`
+### `normalize(value[, options])`
 
 Quote a value.
 
@@ -53,8 +53,13 @@ Quote a value.
 *   `value` ([`Node`][nlcst-node], `Array.<Node>`, or `string`)
     — Value to normalize;
 
-*   `allowApostrophes` (`boolean`, default: `false`)
-    — Do not strip apostrophes (but do normalize them).
+*   `options` (`Object?`):
+
+    *   `allowApostrophes` (`boolean`, default: `false`)
+        — Do not strip apostrophes (`'`);
+
+    *   `allowDashes` (`boolean`, default: `false`)
+        — Do not strip hyphens (`-`).
 
 **Returns**: `string` — Normalized value.
 

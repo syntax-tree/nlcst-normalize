@@ -20,7 +20,7 @@ var toString = require('nlcst-to-string');
  * Constants.
  */
 
-var ALL = /[-'’]/g;
+var ALL = /[-']/g;
 var DASH = /-/g;
 var APOSTROPHE = /’/g;
 var QUOTE = '\'';
@@ -30,18 +30,28 @@ var EMPTY = '';
  * Normalize `value`.
  *
  * @param {string} value - Value to normalize.
- * @param {boolean} allowApostrophes - Do not strip
- *   apostrophes.
+ * @param {Object?} options - Control stripping
+ *   apostrophes and dashes.
  * @return {string} - Normalized `value`.
  */
-function normalize(value, allowApostrophes) {
+function normalize(value, options) {
+    var settings = options || {};
+    var allowApostrophes = settings.allowApostrophes;
+    var allowDashes = settings.allowDashes;
     var result = (typeof value === 'string' ? value : toString(value))
-        .toLowerCase();
+        .toLowerCase()
+        .replace(APOSTROPHE, QUOTE);
+
+    if (allowApostrophes && allowDashes) {
+        return result;
+    }
 
     if (allowApostrophes) {
-        return result
-            .replace(APOSTROPHE, QUOTE)
-            .replace(DASH, EMPTY);
+        return result.replace(DASH, EMPTY);
+    }
+
+    if (allowDashes) {
+        return result.replace(QUOTE, EMPTY);
     }
 
     return result.replace(ALL, EMPTY);
