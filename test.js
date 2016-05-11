@@ -21,7 +21,7 @@ var normalize = require('./');
  * Tests.
  */
 
-test('Basic', function (t) {
+test('Basic', function (t, options) {
     t.throws(
         function () {
             normalize(true);
@@ -32,7 +32,7 @@ test('Basic', function (t) {
     t.end();
 });
 
-test('Case', function (t) {
+test('Case', function (t, options) {
     t.equal(
         normalize('Dont'),
         'dont',
@@ -219,13 +219,13 @@ test('Apostrophes', function (t) {
     );
 
     t.equal(
-        normalize('Don\'t Block-Level', false),
+        normalize('Don\'t Block-Level', {allowApostrophes: false}),
         'dont blocklevel',
         'should normalize dumb apostrophes (string) if false'
     );
 
     t.equal(
-        normalize('Don’t Block-Level', false),
+        normalize('Don’t Block-Level', {allowApostrophes: false}),
         'dont blocklevel',
         'should normalize smart apostrophes (string) if false'
     );
@@ -259,7 +259,7 @@ test('Apostrophes', function (t) {
                     'value': 'Level'
                 }
             ]
-        }, false),
+        }, {allowApostrophes: false}),
         'dont blocklevel',
         'should normalize dumb apostrophes (node) if false'
     );
@@ -293,7 +293,7 @@ test('Apostrophes', function (t) {
                     'value': 'Level'
                 }
             ]
-        }, false),
+        }, {allowApostrophes: false}),
         'dont blocklevel',
         'should normalize smart apostrophes (node) if false'
     );
@@ -324,7 +324,7 @@ test('Apostrophes', function (t) {
                 'type': 'TextNode',
                 'value': 'Level'
             }
-        ], false),
+        ], {allowApostrophes: false}),
         'dont blocklevel',
         'should normalize dumb apostrophes (multiple nodes) if false'
     );
@@ -355,19 +355,19 @@ test('Apostrophes', function (t) {
                 'type': 'TextNode',
                 'value': 'Level'
             }
-        ], false),
+        ], {allowApostrophes: false}),
         'dont blocklevel',
         'should normalize smart apostrophes (multiple nodes) if false'
     );
 
     t.equal(
-        normalize('Don\'t Block-Level', true),
+        normalize('Don\'t Block-Level', {allowApostrophes: true}),
         'don\'t blocklevel',
         'should not normalize dumb apostrophes (string) if true'
     );
 
     t.equal(
-        normalize('Don’t Block-Level', true),
+        normalize('Don’t Block-Level', {allowApostrophes: true}),
         'don\'t blocklevel',
         'should normalize smart apostrophes (string) if true'
     );
@@ -401,7 +401,7 @@ test('Apostrophes', function (t) {
                     'value': 'Level'
                 }
             ]
-        }, true),
+        }, {allowApostrophes: true}),
         'don\'t blocklevel',
         'should not normalize dumb apostrophes (node) if true'
     );
@@ -435,7 +435,7 @@ test('Apostrophes', function (t) {
                     'value': 'Level'
                 }
             ]
-        }, true),
+        }, {allowApostrophes: true}),
         'don\'t blocklevel',
         'should normalize smart apostrophes (node) if true'
     );
@@ -466,7 +466,7 @@ test('Apostrophes', function (t) {
                 'type': 'TextNode',
                 'value': 'Level'
             }
-        ], true),
+        ], {allowApostrophes: true}),
         'don\'t blocklevel',
         'should not normalize dumb apostrophes (multiple nodes) if true'
     );
@@ -497,7 +497,7 @@ test('Apostrophes', function (t) {
                 'type': 'TextNode',
                 'value': 'Level'
             }
-        ], true),
+        ], {allowApostrophes: true}),
         'don\'t blocklevel',
         'should normalize smart apostrophes (multiple nodes) if true'
     );
@@ -578,13 +578,13 @@ test('Dashes', function (t) {
     );
 
     t.equal(
-        normalize('Don\'t Block-Level', false, false),
+        normalize('Don\'t Block-Level', {allowApostrophes: false, allowDashes: false}),
         'dont blocklevel',
         'should normalize dashes (string) if false'
     );
 
     t.equal(
-        normalize('Don\'t Block-Level', true, false),
+        normalize('Don\'t Block-Level', {allowApostrophes: true, allowDashes: false}), 
         'don\'t blocklevel',
         'should normalize dashes (string) if false and apos true'
     );
@@ -618,7 +618,7 @@ test('Dashes', function (t) {
                     'value': 'Level'
                 }
             ]
-        }, false, false),
+        }, {allowApostrophes: false, allowDashes: false}),
         'dont blocklevel',
         'should normalize dashes (node) if false'
     );
@@ -652,7 +652,7 @@ test('Dashes', function (t) {
                     'value': 'Level'
                 }
             ]
-        }, true, false),
+        }, {allowApostrophes: true, allowDashes: false}),
         'don\'t blocklevel',
         'should normalize dashes (node) if false and apos true'
     );
@@ -683,7 +683,7 @@ test('Dashes', function (t) {
                 'type': 'TextNode',
                 'value': 'Level'
             }
-        ], false, false),
+        ], {allowApostrophes: false, allowDashes: false}),
         'dont blocklevel',
         'should normalize dashes (multiple nodes) if false'
     );
@@ -714,19 +714,19 @@ test('Dashes', function (t) {
                 'type': 'TextNode',
                 'value': 'Level'
             }
-        ], true, false),
+        ], {allowApostrophes: true, allowDashes: false}),
         'don\'t blocklevel',
         'should normalize dashes (multiple nodes) if false and apos true'
     );
 
     t.equal(
-        normalize('Don\'t Block-Level', false, true),
+        normalize('Don\'t Block-Level', {allowApostrophes: false, allowDashes: true}),
         'dont block-level',
         'should not normalize dashes (string) if true'
     );
 
     t.equal(
-        normalize('Don\'t Block-Level', true, true),
+        normalize('Don\'t Block-Level', {allowApostrophes: true, allowDashes: true}),
         'don\'t block-level',
         'should not normalize dashes (string) if true and apos true'
     );
@@ -760,7 +760,7 @@ test('Dashes', function (t) {
                     'value': 'Level'
                 }
             ]
-        }, false, true),
+        }, {allowApostrophes: false, allowDashes: true}),
         'dont block-level',
         'should not normalize dashes (node) if true'
     );
@@ -794,7 +794,7 @@ test('Dashes', function (t) {
                     'value': 'Level'
                 }
             ]
-        }, true, true),
+        }, {allowApostrophes: true, allowDashes: true}),
         'don\'t block-level',
         'should not normalize dashes (node) if true and apos true'
     );
@@ -825,7 +825,7 @@ test('Dashes', function (t) {
                 'type': 'TextNode',
                 'value': 'Level'
             }
-        ], false, true),
+        ], {allowApostrophes: false, allowDashes: true}),
         'dont block-level',
         'should not normalize dashes (multiple nodes) if true'
     );
@@ -856,7 +856,7 @@ test('Dashes', function (t) {
                 'type': 'TextNode',
                 'value': 'Level'
             }
-        ], true, true),
+        ], {allowApostrophes: true, allowDashes: true}),
         'don\'t block-level',
         'should not normalize dashes (multiple nodes) if true and apos true'
     );

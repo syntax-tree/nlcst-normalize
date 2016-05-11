@@ -36,9 +36,13 @@ var EMPTY = '';
  *   dashes.
  * @return {string} - Normalized `value`.
  */
-function normalize(value, allowApostrophes, allowDashes) {
+function normalize(value, options) {
     var result = (typeof value === 'string' ? value : toString(value))
         .toLowerCase();
+
+    var options = options || {};
+    var allowApostrophes = options.allowApostrophes || false;
+    var allowDashes = options.allowDashes || false;
 
     if (allowApostrophes && allowDashes) {
         return result;
@@ -59,6 +63,7 @@ function normalize(value, allowApostrophes, allowDashes) {
 
     return result.replace(ALL, EMPTY);
 }
+
 
 /*
  * Expose.
