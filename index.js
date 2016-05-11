@@ -40,9 +40,9 @@ function normalize(value, options) {
     var result = (typeof value === 'string' ? value : toString(value))
         .toLowerCase();
 
-    var options = options || {};
-    var allowApostrophes = options.allowApostrophes || false;
-    var allowDashes = options.allowDashes || false;
+    var settings = options || {};
+    var allowApostrophes = settings.allowApostrophes || false;
+    var allowDashes = settings.allowDashes || false;
 
     if (allowApostrophes && allowDashes) {
         return result;

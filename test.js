@@ -21,7 +21,7 @@ var normalize = require('./');
  * Tests.
  */
 
-test('Basic', function (t, options) {
+test('Basic', function (t) {
     t.throws(
         function () {
             normalize(true);
@@ -32,7 +32,7 @@ test('Basic', function (t, options) {
     t.end();
 });
 
-test('Case', function (t, options) {
+test('Case', function (t) {
     t.equal(
         normalize('Dont'),
         'dont',
@@ -75,7 +75,7 @@ test('Case', function (t, options) {
     t.end();
 });
 
-test('Apostrophes', function (t) {
+test('Apostrophes', function (t, options) {
     t.equal(
         normalize('Don\'t Block-Level'),
         'dont blocklevel',
@@ -505,7 +505,7 @@ test('Apostrophes', function (t) {
     t.end();
 });
 
-test('Dashes', function (t) {
+test('Dashes', function (t, options) {
     t.equal(
         normalize('Don\'t Block-Level'),
         'dont blocklevel',
