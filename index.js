@@ -30,10 +30,8 @@ var EMPTY = '';
  * Normalize `value`.
  *
  * @param {string} value - Value to normalize.
- * @param {boolean} allowApostrophes - Do not strip
- *   apostrophes.
- * @param {boolean} allowDashes - Do not strip
- *   dashes.
+ * @param {Object?} options - Control stripping
+ *   apostrophes and dashes.
  * @return {string} - Normalized `value`.
  */
 function normalize(value, options) {
@@ -63,7 +61,6 @@ function normalize(value, options) {
 
     return result.replace(ALL, EMPTY);
 }
-
 
 /*
  * Expose.
