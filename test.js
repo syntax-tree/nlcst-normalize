@@ -624,7 +624,11 @@ test('Dashes', function (t) {
                     'value': 'Level'
                 }
             ]
-        }, {'allowApostrophes': false, 'allowDashes': false}),
+        },
+        {
+            'allowApostrophes': false,
+            'allowDashes': false
+        }),
         'dont blocklevel',
         'should normalize dashes (node) if false'
     );
@@ -658,7 +662,11 @@ test('Dashes', function (t) {
                     'value': 'Level'
                 }
             ]
-        }, {'allowApostrophes': true, 'allowDashes': false}),
+        },
+        {
+            'allowApostrophes': true,
+            'allowDashes': false
+        }),
         'don\'t blocklevel',
         'should normalize dashes (node) if false and apos true'
     );
@@ -689,7 +697,11 @@ test('Dashes', function (t) {
                 'type': 'TextNode',
                 'value': 'Level'
             }
-        ], {'allowApostrophes': false, 'allowDashes': false}),
+        ],
+        {
+            'allowApostrophes': false,
+            'allowDashes': false
+        }),
         'dont blocklevel',
         'should normalize dashes (multiple nodes) if false'
     );
@@ -720,7 +732,11 @@ test('Dashes', function (t) {
                 'type': 'TextNode',
                 'value': 'Level'
             }
-        ], {'allowApostrophes': true, 'allowDashes': false}),
+        ],
+        {
+            'allowApostrophes': true,
+            'allowDashes': false
+        }),
         'don\'t blocklevel',
         'should normalize dashes (multiple nodes) if false and apos true'
     );
@@ -811,8 +827,9 @@ test('Dashes', function (t) {
                 }
             ]
         },
-        {'allowApostrophes': true,
-        'allowDashes': true
+        {
+            'allowApostrophes': true,
+            'allowDashes': true
         }),
         'don\'t block-level',
         'should not normalize dashes (node) if true and apos true'
@@ -844,7 +861,11 @@ test('Dashes', function (t) {
                 'type': 'TextNode',
                 'value': 'Level'
             }
-        ], {'allowApostrophes': false, 'allowDashes': true}),
+        ],
+        {
+            'allowApostrophes': false,
+            'allowDashes': true
+        }),
         'dont block-level',
         'should not normalize dashes (multiple nodes) if true'
     );
