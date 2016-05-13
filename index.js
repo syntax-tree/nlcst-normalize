@@ -30,18 +30,33 @@ var EMPTY = '';
  * Normalize `value`.
  *
  * @param {string} value - Value to normalize.
- * @param {boolean} allowApostrophes - Do not strip
- *   apostrophes.
+ * @param {Object?} options - Control stripping
+ *   apostrophes and dashes.
  * @return {string} - Normalized `value`.
  */
-function normalize(value, allowApostrophes) {
+function normalize(value, options) {
     var result = (typeof value === 'string' ? value : toString(value))
         .toLowerCase();
+
+    var settings = options || {};
+    var allowApostrophes = settings.allowApostrophes || false;
+    var allowDashes = settings.allowDashes || false;
+
+    if (allowApostrophes && allowDashes) {
+        return result;
+    }
 
     if (allowApostrophes) {
         return result
             .replace(APOSTROPHE, QUOTE)
             .replace(DASH, EMPTY);
+
+    }
+
+    if (allowDashes) {
+        return result
+            .replace(APOSTROPHE, EMPTY)
+            .replace(QUOTE, EMPTY);
     }
 
     return result.replace(ALL, EMPTY);
