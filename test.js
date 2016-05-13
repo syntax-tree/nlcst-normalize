@@ -75,7 +75,7 @@ test('Case', function (t) {
     t.end();
 });
 
-test('Apostrophes', function (t, options) {
+test('Apostrophes', function (t) {
     t.equal(
         normalize('Don\'t Block-Level'),
         'dont blocklevel',
@@ -505,7 +505,7 @@ test('Apostrophes', function (t, options) {
     t.end();
 });
 
-test('Dashes', function (t, options) {
+test('Dashes', function (t) {
     t.equal(
         normalize('Don\'t Block-Level'),
         'dont blocklevel',
