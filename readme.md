@@ -46,7 +46,9 @@ normalize({
 
 ### `normalize(value[, options])`
 
-Quote a value.
+Normalize a word (often a node) for easier comparison.  Always
+normalises smart apostrophes (`’`) to dumb apostrophes (`'`).
+And, lowercases alphabetical characters (`[A-Z]`).
 
 **Parameters**
 
