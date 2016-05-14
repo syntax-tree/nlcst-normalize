@@ -2,6 +2,11 @@
 
 <!--lint disable no-multiple-toplevel-headings -->
 
+2.0.0 / 2016-05-14
+==================
+
+*   Add support for `allowDashes` ([db881e2](https://github.com/wooorm/nlcst-normalize/commit/db881e2))
+
 1.1.0 / 2016-01-18
 ==================
 
