@@ -18,28 +18,19 @@ AMD, CommonJS, and globals module, [uncompressed and compressed][releases].
 ```js
 var normalize = require('nlcst-normalize');
 
-normalize('Don’t'); // 'dont'
-normalize('Don\'t'); // 'dont'
-normalize('Block-level'); // 'blocklevel'
-normalize('Don’t', true); // 'don\'t'
+normalize('Don’t'); //=> 'dont'
+normalize('Don\'t'); //=> 'dont'
+normalize('Block-level'); //=> 'blocklevel'
+normalize('Don’t', true); //=> 'don\'t'
 
 normalize({
-    'type': 'WordNode',
-    'children': [
-        {
-            'type': 'TextNode',
-            'value': 'Block'
-        },
-        {
-            'type': 'PunctuationNode',
-            'value': '-'
-        },
-        {
-            'type': 'TextNode',
-            'value': 'level'
-        }
-    ]
-}); // 'blocklevel'
+  type: 'WordNode',
+  children: [
+    {type: 'TextNode', value: 'Block'},
+    {type: 'PunctuationNode', value: '-'},
+    {type: 'TextNode', value: 'level'}
+  ]
+}); //=> 'blocklevel'
 ```
 
 ## API
