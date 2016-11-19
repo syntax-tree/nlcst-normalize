@@ -4,14 +4,11 @@ Normalize a word for easier comparison, useful for [NLCST][nlcst]
 
 ## Installation
 
-[npm][npm-install]:
+[npm][]:
 
 ```bash
 npm install nlcst-normalize
 ```
-
-**nlcst-normalize** is also available for [duo][duo-install], and as an
-AMD, CommonJS, and globals module, [uncompressed and compressed][releases].
 
 ## Usage
 
@@ -38,23 +35,23 @@ normalize({
 ### `normalize(value[, options])`
 
 Normalize a word (often a node) for easier comparison.  Always
-normalises smart apostrophes (`’`) to dumb apostrophes (`'`).
+normalises smart apostrophes (`’`) to straight apostrophes (`'`).
 And, lowercases alphabetical characters (`[A-Z]`).
 
-**Parameters**
+###### Parameters
 
 *   `value` ([`Node`][nlcst-node], `Array.<Node>`, or `string`)
     — Value to normalize;
-
 *   `options` (`Object?`):
 
     *   `allowApostrophes` (`boolean`, default: `false`)
         — Do not strip apostrophes (`'`);
-
     *   `allowDashes` (`boolean`, default: `false`)
         — Do not strip hyphens (`-`).
 
-**Returns**: `string` — Normalized value.
+###### Returns
+
+`string` — Normalized value.
 
 ## License
 
@@ -70,11 +67,7 @@ And, lowercases alphabetical characters (`[A-Z]`).
 
 [codecov]: https://codecov.io/github/wooorm/nlcst-normalize
 
-[npm-install]: https://docs.npmjs.com/cli/install
-
-[duo-install]: http://duojs.org/#getting-started
-
-[releases]: https://github.com/wooorm/nlcst-normalize/releases
+[npm]: https://docs.npmjs.com/cli/install
 
 [license]: LICENSE
 
