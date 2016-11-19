@@ -9,34 +9,26 @@
     "retext",
     "utility"
   ],
+  "repository": "https://github.com/wooorm/nlcst-normalize",
+  "bugs": "https://github.com/wooorm/nlcst-normalize/issues",
+  "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "files": [
     "index.js"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/wooorm/nlcst-normalize.git"
-  },
-  "bugs": "https://github.com/wooorm/nlcst-normalize/issues",
-  "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "dependencies": {
-    "nlcst-to-string": "^1.1.0"
+    "nlcst-to-string": "^2.0.0"
   },
   "devDependencies": {
     "browserify": "^13.0.0",
     "esmangle": "^1.0.0",
     "istanbul": "^0.4.0",
-    "remark": "^3.0.0",
-    "remark-comment-config": "^2.0.2",
-    "remark-github": "^2.0.0",
-    "remark-lint": "^2.0.2",
-    "remark-slug": "^3.0.1",
-    "remark-validate-links": "^2.0.2",
-    "remark-yaml-config": "^2.0.0",
+    "remark-cli": "^2.1.0",
+    "remark-preset-wooorm": "^1.0.0",
     "tape": "^4.0.0",
     "xo": "^0.17.1"
   },
   "scripts": {
-    "build-md": "remark . --quiet --frail",
+    "build-md": "remark . --quiet --frail --output",
     "build-bundle": "browserify index.js --bare -s nlcstNormalize > nlcst-normalize.js",
     "build-mangle": "esmangle nlcst-normalize.js > nlcst-normalize.min.js",
     "build": "npm run build-md && npm run build-bundle && npm run build-mangle",
@@ -50,5 +42,8 @@
     "ignore": [
       "nlcst-normalize.js"
     ]
+  },
+  "remarkConfig": {
+    "presets": "wooorm"
   }
 }
