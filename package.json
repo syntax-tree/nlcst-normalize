@@ -9,8 +9,8 @@
     "retext",
     "utility"
   ],
-  "repository": "https://github.com/wooorm/nlcst-normalize",
-  "bugs": "https://github.com/wooorm/nlcst-normalize/issues",
+  "repository": "https://github.com/syntax-tree/nlcst-normalize",
+  "bugs": "https://github.com/syntax-tree/nlcst-normalize/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "files": [
     "index.js"

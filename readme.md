@@ -1,6 +1,6 @@
 # nlcst-normalize [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
 
-Normalize a word for easier comparison, useful for [NLCST][nlcst]
+Normalize a word for easier comparison, useful for [NLCST][nlcst].
 
 ## Installation
 
@@ -40,7 +40,7 @@ And, lowercases alphabetical characters (`[A-Z]`).
 
 ###### Parameters
 
-*   `value` ([`Node`][nlcst-node], `Array.<Node>`, or `string`)
+*   `value` ([`Node`][node], `Array.<Node>`, or `string`)
     — Value to normalize;
 *   `options` (`Object?`):
 
@@ -59,13 +59,13 @@ And, lowercases alphabetical characters (`[A-Z]`).
 
 <!-- Definitions -->
 
-[travis-badge]: https://img.shields.io/travis/wooorm/nlcst-normalize.svg
+[travis-badge]: https://img.shields.io/travis/syntax-tree/nlcst-normalize.svg
 
-[travis]: https://travis-ci.org/wooorm/nlcst-normalize
+[travis]: https://travis-ci.org/syntax-tree/nlcst-normalize
 
-[codecov-badge]: https://img.shields.io/codecov/c/github/wooorm/nlcst-normalize.svg
+[codecov-badge]: https://img.shields.io/codecov/c/github/syntax-tree/nlcst-normalize.svg
 
-[codecov]: https://codecov.io/github/wooorm/nlcst-normalize
+[codecov]: https://codecov.io/github/syntax-tree/nlcst-normalize
 
 [npm]: https://docs.npmjs.com/cli/install
 
@@ -73,6 +73,6 @@ And, lowercases alphabetical characters (`[A-Z]`).
 
 [author]: http://wooorm.com
 
-[nlcst]: https://github.com/wooorm/nlcst
+[nlcst]: https://github.com/syntax-tree/nlcst
 
-[nlcst-node]: https://github.com/wooorm/nlcst#node
+[node]: https://github.com/syntax-tree/unist#node
