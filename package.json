@@ -19,13 +19,13 @@
     "nlcst-to-string": "^2.0.0"
   },
   "devDependencies": {
-    "browserify": "^13.0.0",
+    "browserify": "^14.0.0",
     "esmangle": "^1.0.0",
-    "nyc": "^10.0.0",
-    "remark-cli": "^2.1.0",
-    "remark-preset-wooorm": "^1.0.0",
+    "nyc": "^11.0.0",
+    "remark-cli": "^3.0.0",
+    "remark-preset-wooorm": "^3.0.0",
     "tape": "^4.0.0",
-    "xo": "^0.17.1"
+    "xo": "^0.18.2"
   },
   "scripts": {
     "build-md": "remark . --quiet --frail --output",
@@ -45,11 +45,14 @@
   },
   "xo": {
     "space": true,
+    "esnext": false,
     "ignore": [
       "nlcst-normalize.js"
     ]
   },
   "remarkConfig": {
-    "presets": "wooorm"
+    "plugins": [
+      "preset-wooorm"
+    ]
   }
 }
