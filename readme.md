@@ -34,24 +34,17 @@ normalize({
 
 ### `normalize(value[, options])`
 
-Normalize a word (often a node) for easier comparison.  Always
-normalises smart apostrophes (`’`) to straight apostrophes (`'`).
-And, lowercases alphabetical characters (`[A-Z]`).
+Normalize a word (`string`, [`Node`][node], `Array.<Node>`) for easier
+comparison.  Always normalises smart apostrophes (`’`) to straight
+apostrophes (`'`) and lowercases alphabetical characters (`[A-Z]`).
 
-###### Parameters
+###### `options.allowApostrophes`
 
-*   `value` ([`Node`][node], `Array.<Node>`, or `string`)
-    — Value to normalize;
-*   `options` (`Object?`):
+`boolean`, default: `false` — Do not strip apostrophes (`'`).
 
-    *   `allowApostrophes` (`boolean`, default: `false`)
-        — Do not strip apostrophes (`'`);
-    *   `allowDashes` (`boolean`, default: `false`)
-        — Do not strip hyphens (`-`).
+###### `options.allowDashes`
 
-###### Returns
-
-`string` — Normalized value.
+`boolean`, default: `false` — Do not strip hyphens (`-`).
 
 ## License
 
