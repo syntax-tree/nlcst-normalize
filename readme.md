@@ -15,10 +15,11 @@ npm install nlcst-normalize
 ```js
 var normalize = require('nlcst-normalize');
 
-normalize('Don’t'); //=> 'dont'
 normalize('Don\'t'); //=> 'dont'
+normalize('Don’t'); //=> 'dont'
+normalize('Don’t', {allowApostrophes: true}); //=> 'don\'t'
 normalize('Block-level'); //=> 'blocklevel'
-normalize('Don’t', true); //=> 'don\'t'
+normalize('Block-level', {allowDashes: true}); //=> 'block-level'
 
 normalize({
   type: 'WordNode',
