@@ -1,6 +1,6 @@
 {
   "name": "nlcst-normalize",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Normalize a word for easier comparison",
   "license": "MIT",
   "keywords": [
