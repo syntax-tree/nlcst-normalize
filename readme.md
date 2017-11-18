@@ -47,6 +47,14 @@ apostrophes (`'`) and lowercases alphabetical characters (`[A-Z]`).
 
 `boolean`, default: `false` — Do not strip hyphens (`-`).
 
+## Contribute
+
+See [`contribute.md` in `syntax-tree/nlcst`][contribute] for ways to get
+started.
+
+This organisation has a [Code of Conduct][coc].  By interacting with this
+repository, organisation, or community you agree to abide by its terms.
+
 ## License
 
 [MIT][license] © [Titus Wormer][author]
@@ -70,3 +78,7 @@ apostrophes (`'`) and lowercases alphabetical characters (`[A-Z]`).
 [nlcst]: https://github.com/syntax-tree/nlcst
 
 [node]: https://github.com/syntax-tree/unist#node
+
+[contribute]: https://github.com/syntax-tree/nlcst/blob/master/contributing.md
+
+[coc]: https://github.com/syntax-tree/nlcst/blob/master/code-of-conduct.md
