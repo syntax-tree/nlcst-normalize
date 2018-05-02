@@ -1,7 +1,7 @@
 'use strict';
 
 var test = require('tape');
-var normalize = require('./');
+var normalize = require('.');
 
 test('Basic', function (t) {
   t.throws(
@@ -24,8 +24,7 @@ test('Case', function (t) {
   t.equal(
     normalize({
       type: 'WordNode',
-      children: [{type: 'TextNode', value: 'Dont'}
-      ]
+      children: [{type: 'TextNode', value: 'Dont'}]
     }),
     'dont',
     'should normalize case (node)'
@@ -260,9 +259,9 @@ test('Apostrophes', function (t) {
 
 test('Dashes', function (t) {
   t.equal(
-      normalize('Don\'t Block-Level'),
-      'dont blocklevel',
-      'should normalize dashes (string)'
+    normalize('Don\'t Block-Level'),
+    'dont blocklevel',
+    'should normalize dashes (string)'
   );
 
   t.equal(
