@@ -13,13 +13,13 @@ npm install nlcst-normalize
 ## Usage
 
 ```js
-var normalize = require('nlcst-normalize');
+var normalize = require('nlcst-normalize')
 
-normalize('Don\'t'); //=> 'dont'
-normalize('Don’t'); //=> 'dont'
-normalize('Don’t', {allowApostrophes: true}); //=> 'don\'t'
-normalize('Block-level'); //=> 'blocklevel'
-normalize('Block-level', {allowDashes: true}); //=> 'block-level'
+normalize("Don't") // => 'dont'
+normalize('Don’t') // => 'dont'
+normalize('Don’t', {allowApostrophes: true}) // => 'don\'t'
+normalize('Block-level') // => 'blocklevel'
+normalize('Block-level', {allowDashes: true}) // => 'block-level'
 
 normalize({
   type: 'WordNode',
@@ -28,7 +28,7 @@ normalize({
     {type: 'PunctuationNode', value: '-'},
     {type: 'TextNode', value: 'level'}
   ]
-}); //=> 'blocklevel'
+}) // => 'blocklevel'
 ```
 
 ## API
