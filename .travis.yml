@@ -1,15 +1,15 @@
 language: node_js
 node_js:
-- lts/boron
-- node
+  - lts/dubnium
+  - node
 after_script: bash <(curl -s https://codecov.io/bash)
 deploy:
   provider: releases
   skip_cleanup: true
   api_key:
-    secure: a3+c+dt3c2FZFAMq7z/U06XiXpRKRgS6QxhtiW8S0R1er7k+PXhSXtFKRfcrq4YYLxBn3wpR+ACD4p/bH/+uRFc4usvRkqf26So7dCeahBcoNgpsKENjhM+fbvVC3TYQpcNcufsdqGmNrpO9yHsDNNNd6GYx9Xt5ldou1U+d5JEbbk9qbsjcXo44pCfGwj0I0nVI9ytD+30/oU1IKgwP6AcvH5Ek8DUyjSoNiRqkB9UiUThyzkKgvGd0fqKUr9d0Cdgjl2RHPHO783wnJ9DPKBd75ZPI1J9OUtQ0cv9v2D40g2+Eu66HIx71O84g6F3L6K5ccfcUvApksFpHYMGimorTCASIL8F3BBWx2RbxZfBjWfozYYoO/HH6B3Jk8l7xnr1Ex4EzVAqwYVS+LUNqYmASyFcDZlmYwiRZaOmo/tJTmgsB4KQiLuV9b9Mtc7TzYZJK+L+8FI9VDaQvQUmNkPqTVMp1blfTWWNr7SUnlGxSEQjWpT7anZNgovU1cVcNjKxpUkcuFQuzjc+6s7+PNEE5AocOLv7wTUXEc6UKFJzYQlrux7Qt9wWzXre3llFVCfBL32/Zv04Bo1GuRIXl0YZEI6K3r7niGvZtJ4G4zAVT4voz0lZa+sdSFBTHUxAbGUYRufaZ91+KnyT5UbkNY66E/AIV6dKr5lnG+FGUaSQ=
+    secure: RyZsCRMwN6TGUEaauZ8+ZTJosoZmn8aiArXfnTRoD8BdVOON8g4v/TlswMk/1Nhtj79opyqzzVlQ15dr6sl3KDf6EUTKOSSyCoz0b8vLXAqOhVEJDFT/CKcjUO1LdosUiJBYhEmlWjML6Rzf/A5U4OOd+4UT/X9AfG13W0SH1Ia9gqK3MRU/TWAjo4Dag+6GwZ9w0ymgsPu6AxQu0AJh/3F8ZFwWsUgy9zsLQRmOM+Ad2zeJBIkL3JpBDr4XddbM1rzoX8sXfQ83hNPy32fgP+dX9UFrB9T8sJEq7ExJFeFLyQfoEgYOSoVuqE5GFJ0uAZgn6KuRn59dm/jrh4JLT3uAvpA2USRNsW6FM+eThrB6AyR2qBJ+xp64unlusB+p/eurQ4vyI+EfKXAQBgU2eEZKHVnxxCRkzIZ9NrC4UVCQAReAS006neH3+V8WfTwn4KBeyJOkqQTN3Bu7sjE7w6stBKnmonm4NjtmITWbKf/Q8rrLEkbnTy3DBqWHcS0NHDPaArmNWG3C2U0Rd2nLogWNthIlUyxq6/jlgPdkSfuk5s1BCfMWDglFCAqd7diHREcQhvRT1OWkk+2VJx2U/ZvT7xlv8Mq4jUNhSzCod4BQvMUAgvzfFJd376jPOdeUVxqY63LV0tm1zH3owvYjESsdb11Az5SNFBch25+VTYI=
   file:
-    - "nlcst-normalize.js"
-    - "nlcst-normalize.min.js"
+    - 'nlcst-normalize.js'
+    - 'nlcst-normalize.min.js'
   on:
     tags: true
