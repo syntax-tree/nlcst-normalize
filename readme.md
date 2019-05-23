@@ -1,4 +1,12 @@
-# nlcst-normalize [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
+# nlcst-normalize
+
+[![Build][build-badge]][build]
+[![Coverage][coverage-badge]][coverage]
+[![Downloads][downloads-badge]][downloads]
+[![Size][size-badge]][size]
+[![Sponsors][sponsors-badge]][collective]
+[![Backers][backers-badge]][collective]
+[![Chat][chat-badge]][chat]
 
 Normalize a word for easier comparison, useful for [NLCST][nlcst].
 
@@ -61,13 +69,31 @@ repository, organisation, or community you agree to abide by its terms.
 
 <!-- Definitions -->
 
-[travis-badge]: https://img.shields.io/travis/syntax-tree/nlcst-normalize.svg
+[build-badge]: https://img.shields.io/travis/syntax-tree/nlcst-normalize.svg
 
-[travis]: https://travis-ci.org/syntax-tree/nlcst-normalize
+[build]: https://travis-ci.org/syntax-tree/nlcst-normalize
 
-[codecov-badge]: https://img.shields.io/codecov/c/github/syntax-tree/nlcst-normalize.svg
+[coverage-badge]: https://img.shields.io/codecov/c/github/syntax-tree/nlcst-normalize.svg
 
-[codecov]: https://codecov.io/github/syntax-tree/nlcst-normalize
+[coverage]: https://codecov.io/github/syntax-tree/nlcst-normalize
+
+[downloads-badge]: https://img.shields.io/npm/dm/nlcst-normalize.svg
+
+[downloads]: https://www.npmjs.com/package/nlcst-normalize
+
+[size-badge]: https://img.shields.io/bundlephobia/minzip/nlcst-normalize.svg
+
+[size]: https://bundlephobia.com/result?p=nlcst-normalize
+
+[sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
+
+[backers-badge]: https://opencollective.com/unified/backers/badge.svg
+
+[collective]: https://opencollective.com/unified
+
+[chat-badge]: https://img.shields.io/badge/join%20the%20community-on%20spectrum-7b16ff.svg
+
+[chat]: https://spectrum.chat/unified/syntax-tree
 
 [npm]: https://docs.npmjs.com/cli/install
 
