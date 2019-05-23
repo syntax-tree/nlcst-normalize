@@ -4,11 +4,10 @@ var toString = require('nlcst-to-string')
 
 module.exports = normalize
 
-var ALL = /[-']/g
-var DASH = /-/g
-var APOSTROPHE = /’/g
-var QUOTE = "'"
-var EMPTY = ''
+var all = /[-']/g
+var dash = /-/g
+var apostrophe = /’/g
+var singleQuote = /'/g
 
 function normalize(value, options) {
   var settings = options || {}
@@ -16,19 +15,19 @@ function normalize(value, options) {
   var allowDashes = settings.allowDashes
   var result = (typeof value === 'string' ? value : toString(value))
     .toLowerCase()
-    .replace(APOSTROPHE, QUOTE)
+    .replace(apostrophe, "'")
 
   if (allowApostrophes && allowDashes) {
     return result
   }
 
   if (allowApostrophes) {
-    return result.replace(DASH, EMPTY)
+    return result.replace(dash, '')
   }
 
   if (allowDashes) {
-    return result.replace(QUOTE, EMPTY)
+    return result.replace(singleQuote, '')
   }
 
-  return result.replace(ALL, EMPTY)
+  return result.replace(all, '')
 }
