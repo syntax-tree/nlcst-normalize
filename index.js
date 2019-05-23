@@ -10,7 +10,6 @@ var APOSTROPHE = /’/g
 var QUOTE = "'"
 var EMPTY = ''
 
-/* Normalize `value`. */
 function normalize(value, options) {
   var settings = options || {}
   var allowApostrophes = settings.allowApostrophes
