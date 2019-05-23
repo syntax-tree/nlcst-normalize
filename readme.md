@@ -8,13 +8,13 @@
 [![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-Normalize a word for easier comparison, useful for [NLCST][nlcst].
+[**nlcst**][nlcst] utility to normalize a word for easier comparison.
 
-## Installation
+## Install
 
 [npm][]:
 
-```bash
+```sh
 npm install nlcst-normalize
 ```
 
@@ -57,11 +57,13 @@ apostrophes (`'`) and lowercases alphabetical characters (`[A-Z]`).
 
 ## Contribute
 
-See [`contributing.md` in `syntax-tree/nlcst`][contributing] for ways to get
+See [`contributing.md` in `syntax-tree/.github`][contributing] for ways to get
 started.
+See [`support.md`][support] for ways to get help.
 
-This organisation has a [Code of Conduct][coc].  By interacting with this
-repository, organisation, or community you agree to abide by its terms.
+This project has a [Code of Conduct][coc].
+By interacting with this repository, organisation, or community you agree to
+abide by its terms.
 
 ## License
 
@@ -101,10 +103,12 @@ repository, organisation, or community you agree to abide by its terms.
 
 [author]: https://wooorm.com
 
+[contributing]: https://github.com/syntax-tree/.github/blob/master/contributing.md
+
+[support]: https://github.com/syntax-tree/.github/blob/master/support.md
+
+[coc]: https://github.com/syntax-tree/.github/blob/master/code-of-conduct.md
+
 [nlcst]: https://github.com/syntax-tree/nlcst
 
 [node]: https://github.com/syntax-tree/unist#node
-
-[contributing]: https://github.com/syntax-tree/nlcst/blob/master/contributing.md
-
-[coc]: https://github.com/syntax-tree/nlcst/blob/master/code-of-conduct.md
