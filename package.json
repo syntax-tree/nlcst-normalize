@@ -32,7 +32,7 @@
     "xo": "^0.20.0"
   },
   "scripts": {
-    "format": "remark . -qfo && prettier --write '**/*.js' && xo --fix",
+    "format": "remark . -qfo && prettier --write \"**/*.js\" && xo --fix",
     "build-bundle": "browserify index.js --bare -s nlcstNormalize > nlcst-normalize.js",
     "build-mangle": "esmangle nlcst-normalize.js > nlcst-normalize.min.js",
     "build": "npm run build-bundle && npm run build-mangle",
