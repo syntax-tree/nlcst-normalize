@@ -1,13 +1,15 @@
 {
   "name": "nlcst-normalize",
   "version": "2.1.3",
-  "description": "Normalize a word for easier comparison",
+  "description": "nlcst utility to normalize a word for easier comparison",
   "license": "MIT",
   "keywords": [
-    "normalize",
+    "unist",
     "nlcst",
-    "retext",
-    "utility"
+    "nlcst-util",
+    "util",
+    "utility",
+    "normalize"
   ],
   "repository": "syntax-tree/nlcst-normalize",
   "bugs": "https://github.com/syntax-tree/nlcst-normalize/issues",
