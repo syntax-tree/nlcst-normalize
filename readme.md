@@ -56,6 +56,13 @@ lowercases alphabetical characters (`[A-Z]`).
 
 `boolean`, default: `false` — Do not strip hyphens (`-`).
 
+## Related
+
+*   [`nlcst-is-literal`](https://github.com/syntax-tree/nlcst-is-literal)
+    — Check whether a node is meant literally
+*   [`nlcst-search`](https://github.com/syntax-tree/nlcst-search)
+    — Search for patterns
+
 ## Contribute
 
 See [`contributing.md` in `syntax-tree/.github`][contributing] for ways to get
