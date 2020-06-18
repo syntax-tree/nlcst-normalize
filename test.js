@@ -3,15 +3,15 @@
 var test = require('tape')
 var normalize = require('.')
 
-test('Basic', function(t) {
-  t.throws(function() {
+test('Basic', function (t) {
+  t.throws(function () {
     normalize(true)
   }, 'should fail when given a boolean')
 
   t.end()
 })
 
-test('Case', function(t) {
+test('Case', function (t) {
   t.equal(normalize('Dont'), 'dont', 'should normalize case (string)')
 
   t.equal(
@@ -36,7 +36,7 @@ test('Case', function(t) {
   t.end()
 })
 
-test('Apostrophes', function(t) {
+test('Apostrophes', function (t) {
   t.equal(
     normalize("Don't Block-Level"),
     'dont blocklevel',
@@ -274,7 +274,7 @@ test('Apostrophes', function(t) {
   t.end()
 })
 
-test('Dashes', function(t) {
+test('Dashes', function (t) {
   t.equal(
     normalize("Don't Block-Level"),
     'dont blocklevel',
