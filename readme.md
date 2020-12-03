@@ -79,9 +79,9 @@ abide by its terms.
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/syntax-tree/nlcst-normalize.svg
+[build-badge]: https://github.com/syntax-tree/nlcst-normalize/workflows/main/badge.svg
 
-[build]: https://travis-ci.org/syntax-tree/nlcst-normalize
+[build]: https://github.com/syntax-tree/nlcst-normalize/actions
 
 [coverage-badge]: https://img.shields.io/codecov/c/github/syntax-tree/nlcst-normalize.svg
 
