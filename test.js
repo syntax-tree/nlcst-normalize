@@ -3,6 +3,7 @@ import {normalize} from './index.js'
 
 test('Basic', function (t) {
   t.throws(function () {
+    // @ts-ignore runtime.
     normalize(true)
   }, 'should fail when given a boolean')
 

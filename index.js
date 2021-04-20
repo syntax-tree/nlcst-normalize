@@ -1,5 +1,17 @@
+/**
+ * @typedef {import('unist').Node} Node
+ *
+ * @typedef {Object} NormalizeOptions
+ * @property {boolean} [allowDashes=false]
+ * @property {boolean} [allowApostrophes=false]
+ */
+
 import {toString} from 'nlcst-to-string'
 
+/**
+ * @param {string|Node|Array.<Node>} node
+ * @param {NormalizeOptions} [options={}]
+ */
 export function normalize(node, options) {
   var value = (typeof node === 'string' ? node : toString(node))
     .toLowerCase()
