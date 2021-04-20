@@ -1,10 +1,6 @@
-'use strict'
+import {toString} from 'nlcst-to-string'
 
-var toString = require('nlcst-to-string')
-
-module.exports = normalize
-
-function normalize(node, options) {
+export function normalize(node, options) {
   var value = (typeof node === 'string' ? node : toString(node))
     .toLowerCase()
     .replace(/’/g, "'")

@@ -1,7 +1,5 @@
-'use strict'
-
-var test = require('tape')
-var normalize = require('.')
+import test from 'tape'
+import {normalize} from './index.js'
 
 test('Basic', function (t) {
   t.throws(function () {
