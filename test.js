@@ -8,7 +8,7 @@ import {normalize} from './index.js'
 
 test('Basic', (t) => {
   t.throws(() => {
-    // @ts-ignore runtime.
+    // @ts-expect-error runtime.
     normalize(true)
   }, 'should fail when given a boolean')
 
