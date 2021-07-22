@@ -13,7 +13,7 @@ import {toString} from 'nlcst-to-string'
  * @param {NormalizeOptions} [options={}]
  */
 export function normalize(node, options) {
-  var value = (typeof node === 'string' ? node : toString(node))
+  let value = (typeof node === 'string' ? node : toString(node))
     .toLowerCase()
     .replace(/’/g, "'")
 

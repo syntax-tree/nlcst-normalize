@@ -6,8 +6,8 @@
 import test from 'tape'
 import {normalize} from './index.js'
 
-test('Basic', function (t) {
-  t.throws(function () {
+test('Basic', (t) => {
+  t.throws(() => {
     // @ts-ignore runtime.
     normalize(true)
   }, 'should fail when given a boolean')
@@ -15,7 +15,7 @@ test('Basic', function (t) {
   t.end()
 })
 
-test('Case', function (t) {
+test('Case', (t) => {
   t.equal(normalize('Dont'), 'dont', 'should normalize case (string)')
 
   t.equal(
@@ -44,7 +44,7 @@ test('Case', function (t) {
   t.end()
 })
 
-test('Apostrophes', function (t) {
+test('Apostrophes', (t) => {
   t.equal(
     normalize("Don't Block-Level"),
     'dont blocklevel',
@@ -290,7 +290,7 @@ test('Apostrophes', function (t) {
   t.end()
 })
 
-test('Dashes', function (t) {
+test('Dashes', (t) => {
   t.equal(
     normalize("Don't Block-Level"),
     'dont blocklevel',
