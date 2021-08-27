@@ -1,5 +1,7 @@
 /**
- * @typedef {import('unist').Node} Node
+ * @typedef {import('nlcst').Root} Root
+ * @typedef {import('nlcst').Content} Content
+ * @typedef {Root|Content} Node
  *
  * @typedef {Object} NormalizeOptions
  * @property {boolean} [allowDashes=false]
@@ -9,7 +11,7 @@
 import {toString} from 'nlcst-to-string'
 
 /**
- * @param {string|Node|Array.<Node>} node
+ * @param {string|Node|Array.<Content>} node
  * @param {NormalizeOptions} [options={}]
  */
 export function normalize(node, options) {

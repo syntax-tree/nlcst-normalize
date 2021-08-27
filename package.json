@@ -30,7 +30,7 @@
     "index.js"
   ],
   "dependencies": {
-    "@types/unist": "^2.0.0",
+    "@types/nlcst": "^1.0.0",
     "nlcst-to-string": "^3.0.0"
   },
   "devDependencies": {

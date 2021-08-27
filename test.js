@@ -1,8 +1,3 @@
-/**
- * @typedef {import('unist').Literal<string>} Literal
- * @typedef {import('unist').Parent<Literal>} Parent
- */
-
 import test from 'tape'
 import {normalize} from './index.js'
 
@@ -19,24 +14,20 @@ test('Case', (t) => {
   t.equal(normalize('Dont'), 'dont', 'should normalize case (string)')
 
   t.equal(
-    normalize(
-      /** @type {Parent} */ ({
-        type: 'WordNode',
-        children: [{type: 'TextNode', value: 'Dont'}]
-      })
-    ),
+    normalize({
+      type: 'WordNode',
+      children: [{type: 'TextNode', value: 'Dont'}]
+    }),
     'dont',
     'should normalize case (node)'
   )
 
   t.equal(
-    normalize(
-      /** @type {Literal[]} */ ([
-        {type: 'TextNode', value: 'Block'},
-        {type: 'PunctuationNode', value: '-'},
-        {type: 'TextNode', value: 'level'}
-      ])
-    ),
+    normalize([
+      {type: 'TextNode', value: 'Block'},
+      {type: 'PunctuationNode', value: '-'},
+      {type: 'TextNode', value: 'level'}
+    ]),
     'blocklevel',
     'should normalize case (multiple nodes)'
   )
@@ -58,67 +49,59 @@ test('Apostrophes', (t) => {
   )
 
   t.equal(
-    normalize(
-      /** @type {Parent} */ ({
-        type: 'WordNode',
-        children: [
-          {type: 'TextNode', value: 'Don'},
-          {type: 'PunctuationNode', value: "'"},
-          {type: 'TextNode', value: 't '},
-          {type: 'TextNode', value: 'Block'},
-          {type: 'PunctuationNode', value: '-'},
-          {type: 'TextNode', value: 'Level'}
-        ]
-      })
-    ),
-    'dont blocklevel',
-    'should normalize dumb apostrophes (node)'
-  )
-
-  t.equal(
-    normalize(
-      /** @type {Parent} */ ({
-        type: 'WordNode',
-        children: [
-          {type: 'TextNode', value: 'Don'},
-          {type: 'PunctuationNode', value: '’'},
-          {type: 'TextNode', value: 't '},
-          {type: 'TextNode', value: 'Block'},
-          {type: 'PunctuationNode', value: '-'},
-          {type: 'TextNode', value: 'Level'}
-        ]
-      })
-    ),
-    'dont blocklevel',
-    'should normalize smart apostrophes (node)'
-  )
-
-  t.equal(
-    normalize(
-      /** @type {Literal[]} */ ([
+    normalize({
+      type: 'WordNode',
+      children: [
         {type: 'TextNode', value: 'Don'},
         {type: 'PunctuationNode', value: "'"},
         {type: 'TextNode', value: 't '},
         {type: 'TextNode', value: 'Block'},
         {type: 'PunctuationNode', value: '-'},
         {type: 'TextNode', value: 'Level'}
-      ])
-    ),
+      ]
+    }),
     'dont blocklevel',
-    'should normalize dumb apostrophes (multiple nodes)'
+    'should normalize dumb apostrophes (node)'
   )
 
   t.equal(
-    normalize(
-      /** @type {Literal[]} */ ([
+    normalize({
+      type: 'WordNode',
+      children: [
         {type: 'TextNode', value: 'Don'},
         {type: 'PunctuationNode', value: '’'},
         {type: 'TextNode', value: 't '},
         {type: 'TextNode', value: 'Block'},
         {type: 'PunctuationNode', value: '-'},
         {type: 'TextNode', value: 'Level'}
-      ])
-    ),
+      ]
+    }),
+    'dont blocklevel',
+    'should normalize smart apostrophes (node)'
+  )
+
+  t.equal(
+    normalize([
+      {type: 'TextNode', value: 'Don'},
+      {type: 'PunctuationNode', value: "'"},
+      {type: 'TextNode', value: 't '},
+      {type: 'TextNode', value: 'Block'},
+      {type: 'PunctuationNode', value: '-'},
+      {type: 'TextNode', value: 'Level'}
+    ]),
+    'dont blocklevel',
+    'should normalize dumb apostrophes (multiple nodes)'
+  )
+
+  t.equal(
+    normalize([
+      {type: 'TextNode', value: 'Don'},
+      {type: 'PunctuationNode', value: '’'},
+      {type: 'TextNode', value: 't '},
+      {type: 'TextNode', value: 'Block'},
+      {type: 'PunctuationNode', value: '-'},
+      {type: 'TextNode', value: 'Level'}
+    ]),
     'dont blocklevel',
     'should normalize smart apostrophes (multiple nodes)'
   )
@@ -137,7 +120,7 @@ test('Apostrophes', (t) => {
 
   t.equal(
     normalize(
-      /** @type {Parent} */ ({
+      {
         type: 'WordNode',
         children: [
           {type: 'TextNode', value: 'Don'},
@@ -147,7 +130,7 @@ test('Apostrophes', (t) => {
           {type: 'PunctuationNode', value: '-'},
           {type: 'TextNode', value: 'Level'}
         ]
-      }),
+      },
       {allowApostrophes: false}
     ),
     'dont blocklevel',
@@ -156,7 +139,7 @@ test('Apostrophes', (t) => {
 
   t.equal(
     normalize(
-      /** @type {Parent} */ ({
+      {
         type: 'WordNode',
         children: [
           {type: 'TextNode', value: 'Don'},
@@ -166,7 +149,7 @@ test('Apostrophes', (t) => {
           {type: 'PunctuationNode', value: '-'},
           {type: 'TextNode', value: 'Level'}
         ]
-      }),
+      },
       {allowApostrophes: false}
     ),
     'dont blocklevel',
@@ -175,14 +158,14 @@ test('Apostrophes', (t) => {
 
   t.equal(
     normalize(
-      /** @type {Literal[]} */ ([
+      [
         {type: 'TextNode', value: 'Don'},
         {type: 'PunctuationNode', value: "'"},
         {type: 'TextNode', value: 't '},
         {type: 'TextNode', value: 'Block'},
         {type: 'PunctuationNode', value: '-'},
         {type: 'TextNode', value: 'Level'}
-      ]),
+      ],
       {allowApostrophes: false}
     ),
     'dont blocklevel',
@@ -191,14 +174,14 @@ test('Apostrophes', (t) => {
 
   t.equal(
     normalize(
-      /** @type {Literal[]} */ ([
+      [
         {type: 'TextNode', value: 'Don'},
         {type: 'PunctuationNode', value: '’'},
         {type: 'TextNode', value: 't '},
         {type: 'TextNode', value: 'Block'},
         {type: 'PunctuationNode', value: '-'},
         {type: 'TextNode', value: 'Level'}
-      ]),
+      ],
       {allowApostrophes: false}
     ),
     'dont blocklevel',
@@ -219,7 +202,7 @@ test('Apostrophes', (t) => {
 
   t.equal(
     normalize(
-      /** @type {Parent} */ ({
+      {
         type: 'WordNode',
         children: [
           {type: 'TextNode', value: 'Don'},
@@ -229,7 +212,7 @@ test('Apostrophes', (t) => {
           {type: 'PunctuationNode', value: '-'},
           {type: 'TextNode', value: 'Level'}
         ]
-      }),
+      },
       {allowApostrophes: true}
     ),
     "don't blocklevel",
@@ -238,7 +221,7 @@ test('Apostrophes', (t) => {
 
   t.equal(
     normalize(
-      /** @type {Parent} */ ({
+      {
         type: 'WordNode',
         children: [
           {type: 'TextNode', value: 'Don'},
@@ -248,7 +231,7 @@ test('Apostrophes', (t) => {
           {type: 'PunctuationNode', value: '-'},
           {type: 'TextNode', value: 'Level'}
         ]
-      }),
+      },
       {allowApostrophes: true}
     ),
     "don't blocklevel",
@@ -257,14 +240,14 @@ test('Apostrophes', (t) => {
 
   t.equal(
     normalize(
-      /** @type {Literal[]} */ ([
+      [
         {type: 'TextNode', value: 'Don'},
         {type: 'PunctuationNode', value: "'"},
         {type: 'TextNode', value: 't '},
         {type: 'TextNode', value: 'Block'},
         {type: 'PunctuationNode', value: '-'},
         {type: 'TextNode', value: 'Level'}
-      ]),
+      ],
       {allowApostrophes: true}
     ),
     "don't blocklevel",
@@ -273,14 +256,14 @@ test('Apostrophes', (t) => {
 
   t.equal(
     normalize(
-      /** @type {Literal[]} */ ([
+      [
         {type: 'TextNode', value: 'Don'},
         {type: 'PunctuationNode', value: '’'},
         {type: 'TextNode', value: 't '},
         {type: 'TextNode', value: 'Block'},
         {type: 'PunctuationNode', value: '-'},
         {type: 'TextNode', value: 'Level'}
-      ]),
+      ],
       {allowApostrophes: true}
     ),
     "don't blocklevel",
@@ -298,34 +281,30 @@ test('Dashes', (t) => {
   )
 
   t.equal(
-    normalize(
-      /** @type {Parent} */ ({
-        type: 'WordNode',
-        children: [
-          {type: 'TextNode', value: 'Don'},
-          {type: 'PunctuationNode', value: "'"},
-          {type: 'TextNode', value: 't '},
-          {type: 'TextNode', value: 'Block'},
-          {type: 'PunctuationNode', value: '-'},
-          {type: 'TextNode', value: 'Level'}
-        ]
-      })
-    ),
-    'dont blocklevel',
-    'should normalize dashes (node)'
-  )
-
-  t.equal(
-    normalize(
-      /** @type {Literal[]} */ ([
+    normalize({
+      type: 'WordNode',
+      children: [
         {type: 'TextNode', value: 'Don'},
         {type: 'PunctuationNode', value: "'"},
         {type: 'TextNode', value: 't '},
         {type: 'TextNode', value: 'Block'},
         {type: 'PunctuationNode', value: '-'},
         {type: 'TextNode', value: 'Level'}
-      ])
-    ),
+      ]
+    }),
+    'dont blocklevel',
+    'should normalize dashes (node)'
+  )
+
+  t.equal(
+    normalize([
+      {type: 'TextNode', value: 'Don'},
+      {type: 'PunctuationNode', value: "'"},
+      {type: 'TextNode', value: 't '},
+      {type: 'TextNode', value: 'Block'},
+      {type: 'PunctuationNode', value: '-'},
+      {type: 'TextNode', value: 'Level'}
+    ]),
     'dont blocklevel',
     'should normalize dashes (multiple nodes)'
   )
@@ -350,7 +329,7 @@ test('Dashes', (t) => {
 
   t.equal(
     normalize(
-      /** @type {Parent} */ ({
+      {
         type: 'WordNode',
         children: [
           {type: 'TextNode', value: 'Don'},
@@ -360,7 +339,7 @@ test('Dashes', (t) => {
           {type: 'PunctuationNode', value: '-'},
           {type: 'TextNode', value: 'Level'}
         ]
-      }),
+      },
       {
         allowApostrophes: false,
         allowDashes: false
@@ -372,7 +351,7 @@ test('Dashes', (t) => {
 
   t.equal(
     normalize(
-      /** @type {Parent} */ ({
+      {
         type: 'WordNode',
         children: [
           {type: 'TextNode', value: 'Don'},
@@ -382,7 +361,7 @@ test('Dashes', (t) => {
           {type: 'PunctuationNode', value: '-'},
           {type: 'TextNode', value: 'Level'}
         ]
-      }),
+      },
       {allowApostrophes: true, allowDashes: false}
     ),
     "don't blocklevel",
@@ -391,14 +370,14 @@ test('Dashes', (t) => {
 
   t.equal(
     normalize(
-      /** @type {Literal[]} */ ([
+      [
         {type: 'TextNode', value: 'Don'},
         {type: 'PunctuationNode', value: "'"},
         {type: 'TextNode', value: 't '},
         {type: 'TextNode', value: 'Block'},
         {type: 'PunctuationNode', value: '-'},
         {type: 'TextNode', value: 'Level'}
-      ]),
+      ],
       {allowApostrophes: false, allowDashes: false}
     ),
     'dont blocklevel',
@@ -407,14 +386,14 @@ test('Dashes', (t) => {
 
   t.equal(
     normalize(
-      /** @type {Literal[]} */ ([
+      [
         {type: 'TextNode', value: 'Don'},
         {type: 'PunctuationNode', value: "'"},
         {type: 'TextNode', value: 't '},
         {type: 'TextNode', value: 'Block'},
         {type: 'PunctuationNode', value: '-'},
         {type: 'TextNode', value: 'Level'}
-      ]),
+      ],
       {allowApostrophes: true, allowDashes: false}
     ),
     "don't blocklevel",
@@ -441,7 +420,7 @@ test('Dashes', (t) => {
 
   t.equal(
     normalize(
-      /** @type {Parent} */ ({
+      {
         type: 'WordNode',
         children: [
           {type: 'TextNode', value: 'Don'},
@@ -451,7 +430,7 @@ test('Dashes', (t) => {
           {type: 'PunctuationNode', value: '-'},
           {type: 'TextNode', value: 'Level'}
         ]
-      }),
+      },
       {allowApostrophes: false, allowDashes: true}
     ),
     'dont block-level',
@@ -460,7 +439,7 @@ test('Dashes', (t) => {
 
   t.equal(
     normalize(
-      /** @type {Parent} */ ({
+      {
         type: 'WordNode',
         children: [
           {type: 'TextNode', value: 'Don'},
@@ -470,7 +449,7 @@ test('Dashes', (t) => {
           {type: 'PunctuationNode', value: '-'},
           {type: 'TextNode', value: 'Level'}
         ]
-      }),
+      },
       {allowApostrophes: true, allowDashes: true}
     ),
     "don't block-level",
@@ -479,14 +458,14 @@ test('Dashes', (t) => {
 
   t.equal(
     normalize(
-      /** @type {Literal[]} */ ([
+      [
         {type: 'TextNode', value: 'Don'},
         {type: 'PunctuationNode', value: "'"},
         {type: 'TextNode', value: 't '},
         {type: 'TextNode', value: 'Block'},
         {type: 'PunctuationNode', value: '-'},
         {type: 'TextNode', value: 'Level'}
-      ]),
+      ],
       {allowApostrophes: false, allowDashes: true}
     ),
     'dont block-level',
@@ -495,14 +474,14 @@ test('Dashes', (t) => {
 
   t.equal(
     normalize(
-      /** @type {Literal[]} */ ([
+      [
         {type: 'TextNode', value: 'Don'},
         {type: 'PunctuationNode', value: "'"},
         {type: 'TextNode', value: 't '},
         {type: 'TextNode', value: 'Block'},
         {type: 'PunctuationNode', value: '-'},
         {type: 'TextNode', value: 'Level'}
-      ]),
+      ],
       {allowApostrophes: true, allowDashes: true}
     ),
     "don't block-level",
