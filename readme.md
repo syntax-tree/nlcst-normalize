@@ -49,7 +49,7 @@ There is no default export.
 
 ### `normalize(value[, options])`
 
-Normalize a word (`string`, [`Node`][node], `Array.<Node>`) for easier
+Normalize a word (`string`, [`Node`][node], `Array<Node>`) for easier
 comparison.
 Always normalizes smart apostrophes (`’`) to straight apostrophes (`'`) and
 lowercases alphabetical characters (`[A-Z]`).

@@ -3,15 +3,18 @@
  * @typedef {import('nlcst').Content} Content
  * @typedef {Root|Content} Node
  *
- * @typedef {Object} NormalizeOptions
+ * @typedef Options
  * @property {boolean} [allowDashes=false]
  * @property {boolean} [allowApostrophes=false]
+ *
+ * @typedef {Options} NormalizeOptions
+ *   Deprecated form of `Options`.
  */
 
 import {toString} from 'nlcst-to-string'
 
 /**
- * @param {string|Node|Array.<Content>} node
+ * @param {string|Node|Array<Content>} node
  * @param {NormalizeOptions} [options={}]
  */
 export function normalize(node, options) {
