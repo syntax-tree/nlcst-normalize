@@ -18,6 +18,7 @@
 *   [Use](#use)
 *   [API](#api)
     *   [`normalize(value[, options])`](#normalizevalue-options)
+    *   [`Options`](#options)
 *   [Types](#types)
 *   [Compatibility](#compatibility)
 *   [Related](#related)
@@ -36,7 +37,7 @@ word lists.
 ## Install
 
 This package is [ESM only][esm].
-In Node.js (version 12.20+, 14.14+, 16.0+, 18.0+), install with [npm][]:
+In Node.js (version 14.14+ and 16.0+), install with [npm][]:
 
 ```sh
 npm install nlcst-normalize
@@ -45,14 +46,14 @@ npm install nlcst-normalize
 In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import {normalize} from "https://esm.sh/nlcst-normalize@3"
+import {normalize} from 'https://esm.sh/nlcst-normalize@3'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import {normalize} from "https://esm.sh/nlcst-normalize@3?bundle"
+  import {normalize} from 'https://esm.sh/nlcst-normalize@3?bundle'
 </script>
 ```
 
@@ -79,38 +80,55 @@ normalize({
 
 ## API
 
-This package exports the identifier `normalize`.
+This package exports the identifier [`normalize`][normalize].
 There is no default export.
 
 ### `normalize(value[, options])`
 
-Normalize a word (`string`, [`Node`][node], `Array<Node>`) for easier
-comparison.
+Normalize a word for easier comparison.
+
 Always normalizes smart apostrophes (`’`) to straight apostrophes (`'`) and
 lowercases alphabetical characters (`[A-Z]`).
 
-##### `options`
+###### Parameters
 
-Configuration (optional).
+*   `value` (`string`, [`Node`][node], or `Array<Node>`)
+    — word
+*   `options` ([`Options`][options], optional)
+    — configuration
 
-###### `options.allowApostrophes`
+###### Returns
+
+Normalized word (`string`).
+
+### `Options`
+
+Configuration (TypeScript type).
+
+##### Fields
+
+###### `allowApostrophes`
 
 Do not strip apostrophes (`'`) (`boolean`, default: `false`).
 
-###### `options.allowDashes`
+The default is to remove apostrophes.
+
+###### `allowDashes`
 
 Do not strip hyphens (`-`) (`boolean`, default: `false`).
+
+The default is to remove the hyphen-minus character.
 
 ## Types
 
 This package is fully typed with [TypeScript][].
-It exports the additional types `Options`.
+It exports the additional types [`Options`][options].
 
 ## Compatibility
 
 Projects maintained by the unified collective are compatible with all maintained
 versions of Node.js.
-As of now, that is Node.js 12.20+, 14.14+, 16.0+, and 18.0+.
+As of now, that is Node.js 14.14+ and 16.0+.
 Our projects sometimes work with older versions, but this is not guaranteed.
 
 ## Related
@@ -185,3 +203,7 @@ abide by its terms.
 [nlcst]: https://github.com/syntax-tree/nlcst
 
 [node]: https://github.com/syntax-tree/unist#node
+
+[normalize]: #normalizevalue-options
+
+[options]: #options
