@@ -1,8 +1,15 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import {normalize} from './index.js'
+import * as mod from './index.js'
 
 test('Basic', () => {
+  assert.deepEqual(
+    Object.keys(mod).sort(),
+    ['normalize'],
+    'should expose the public api'
+  )
+
   assert.throws(() => {
     // @ts-expect-error runtime.
     normalize(true)
