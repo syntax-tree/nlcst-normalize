@@ -1,19 +1,18 @@
-import test from 'tape'
+import assert from 'node:assert/strict'
+import test from 'node:test'
 import {normalize} from './index.js'
 
-test('Basic', (t) => {
-  t.throws(() => {
+test('Basic', () => {
+  assert.throws(() => {
     // @ts-expect-error runtime.
     normalize(true)
   }, 'should fail when given a boolean')
-
-  t.end()
 })
 
-test('Case', (t) => {
-  t.equal(normalize('Dont'), 'dont', 'should normalize case (string)')
+test('Case', () => {
+  assert.equal(normalize('Dont'), 'dont', 'should normalize case (string)')
 
-  t.equal(
+  assert.equal(
     normalize({
       type: 'WordNode',
       children: [{type: 'TextNode', value: 'Dont'}]
@@ -22,7 +21,7 @@ test('Case', (t) => {
     'should normalize case (node)'
   )
 
-  t.equal(
+  assert.equal(
     normalize([
       {type: 'TextNode', value: 'Block'},
       {type: 'PunctuationNode', value: '-'},
@@ -31,24 +30,22 @@ test('Case', (t) => {
     'blocklevel',
     'should normalize case (multiple nodes)'
   )
-
-  t.end()
 })
 
-test('Apostrophes', (t) => {
-  t.equal(
+test('Apostrophes', () => {
+  assert.equal(
     normalize("Don't Block-Level"),
     'dont blocklevel',
     'should normalize dumb apostrophes (string)'
   )
 
-  t.equal(
+  assert.equal(
     normalize('Don’t Block-Level'),
     'dont blocklevel',
     'should normalize smart apostrophes (string)'
   )
 
-  t.equal(
+  assert.equal(
     normalize({
       type: 'WordNode',
       children: [
@@ -64,7 +61,7 @@ test('Apostrophes', (t) => {
     'should normalize dumb apostrophes (node)'
   )
 
-  t.equal(
+  assert.equal(
     normalize({
       type: 'WordNode',
       children: [
@@ -80,7 +77,7 @@ test('Apostrophes', (t) => {
     'should normalize smart apostrophes (node)'
   )
 
-  t.equal(
+  assert.equal(
     normalize([
       {type: 'TextNode', value: 'Don'},
       {type: 'PunctuationNode', value: "'"},
@@ -93,7 +90,7 @@ test('Apostrophes', (t) => {
     'should normalize dumb apostrophes (multiple nodes)'
   )
 
-  t.equal(
+  assert.equal(
     normalize([
       {type: 'TextNode', value: 'Don'},
       {type: 'PunctuationNode', value: '’'},
@@ -106,19 +103,19 @@ test('Apostrophes', (t) => {
     'should normalize smart apostrophes (multiple nodes)'
   )
 
-  t.equal(
+  assert.equal(
     normalize("Don't Block-Level", {allowApostrophes: false}),
     'dont blocklevel',
     'should normalize dumb apostrophes (string) if false'
   )
 
-  t.equal(
+  assert.equal(
     normalize('Don’t Block-Level', {allowApostrophes: false}),
     'dont blocklevel',
     'should normalize smart apostrophes (string) if false'
   )
 
-  t.equal(
+  assert.equal(
     normalize(
       {
         type: 'WordNode',
@@ -137,7 +134,7 @@ test('Apostrophes', (t) => {
     'should normalize dumb apostrophes (node) if false'
   )
 
-  t.equal(
+  assert.equal(
     normalize(
       {
         type: 'WordNode',
@@ -156,7 +153,7 @@ test('Apostrophes', (t) => {
     'should normalize smart apostrophes (node) if false'
   )
 
-  t.equal(
+  assert.equal(
     normalize(
       [
         {type: 'TextNode', value: 'Don'},
@@ -172,7 +169,7 @@ test('Apostrophes', (t) => {
     'should normalize dumb apostrophes (multiple nodes) if false'
   )
 
-  t.equal(
+  assert.equal(
     normalize(
       [
         {type: 'TextNode', value: 'Don'},
@@ -188,19 +185,19 @@ test('Apostrophes', (t) => {
     'should normalize smart apostrophes (multiple nodes) if false'
   )
 
-  t.equal(
+  assert.equal(
     normalize("Don't Block-Level", {allowApostrophes: true}),
     "don't blocklevel",
     'should not normalize dumb apostrophes (string) if true'
   )
 
-  t.equal(
+  assert.equal(
     normalize('Don’t Block-Level', {allowApostrophes: true}),
     "don't blocklevel",
     'should normalize smart apostrophes (string) if true'
   )
 
-  t.equal(
+  assert.equal(
     normalize(
       {
         type: 'WordNode',
@@ -219,7 +216,7 @@ test('Apostrophes', (t) => {
     'should not normalize dumb apostrophes (node) if true'
   )
 
-  t.equal(
+  assert.equal(
     normalize(
       {
         type: 'WordNode',
@@ -238,7 +235,7 @@ test('Apostrophes', (t) => {
     'should normalize smart apostrophes (node) if true'
   )
 
-  t.equal(
+  assert.equal(
     normalize(
       [
         {type: 'TextNode', value: 'Don'},
@@ -254,7 +251,7 @@ test('Apostrophes', (t) => {
     'should not normalize dumb apostrophes (multiple nodes) if true'
   )
 
-  t.equal(
+  assert.equal(
     normalize(
       [
         {type: 'TextNode', value: 'Don'},
@@ -269,18 +266,16 @@ test('Apostrophes', (t) => {
     "don't blocklevel",
     'should normalize smart apostrophes (multiple nodes) if true'
   )
-
-  t.end()
 })
 
-test('Dashes', (t) => {
-  t.equal(
+test('Dashes', () => {
+  assert.equal(
     normalize("Don't Block-Level"),
     'dont blocklevel',
     'should normalize dashes (string)'
   )
 
-  t.equal(
+  assert.equal(
     normalize({
       type: 'WordNode',
       children: [
@@ -296,7 +291,7 @@ test('Dashes', (t) => {
     'should normalize dashes (node)'
   )
 
-  t.equal(
+  assert.equal(
     normalize([
       {type: 'TextNode', value: 'Don'},
       {type: 'PunctuationNode', value: "'"},
@@ -309,7 +304,7 @@ test('Dashes', (t) => {
     'should normalize dashes (multiple nodes)'
   )
 
-  t.equal(
+  assert.equal(
     normalize("Don't Block-Level", {
       allowApostrophes: false,
       allowDashes: false
@@ -318,7 +313,7 @@ test('Dashes', (t) => {
     'should normalize dashes (string) if false'
   )
 
-  t.equal(
+  assert.equal(
     normalize("Don't Block-Level", {
       allowApostrophes: true,
       allowDashes: false
@@ -327,7 +322,7 @@ test('Dashes', (t) => {
     'should normalize dashes (string) if false and apos true'
   )
 
-  t.equal(
+  assert.equal(
     normalize(
       {
         type: 'WordNode',
@@ -349,7 +344,7 @@ test('Dashes', (t) => {
     'should normalize dashes (node) if false'
   )
 
-  t.equal(
+  assert.equal(
     normalize(
       {
         type: 'WordNode',
@@ -368,7 +363,7 @@ test('Dashes', (t) => {
     'should normalize dashes (node) if false and apos true'
   )
 
-  t.equal(
+  assert.equal(
     normalize(
       [
         {type: 'TextNode', value: 'Don'},
@@ -384,7 +379,7 @@ test('Dashes', (t) => {
     'should normalize dashes (multiple nodes) if false'
   )
 
-  t.equal(
+  assert.equal(
     normalize(
       [
         {type: 'TextNode', value: 'Don'},
@@ -400,7 +395,7 @@ test('Dashes', (t) => {
     'should normalize dashes (multiple nodes) if false and apos true'
   )
 
-  t.equal(
+  assert.equal(
     normalize("Don't Block-Level", {
       allowApostrophes: false,
       allowDashes: true
@@ -409,7 +404,7 @@ test('Dashes', (t) => {
     'should not normalize dashes (string) if true'
   )
 
-  t.equal(
+  assert.equal(
     normalize("Don't Block-Level", {
       allowApostrophes: true,
       allowDashes: true
@@ -418,7 +413,7 @@ test('Dashes', (t) => {
     'should not normalize dashes (string) if true and apos true'
   )
 
-  t.equal(
+  assert.equal(
     normalize(
       {
         type: 'WordNode',
@@ -437,7 +432,7 @@ test('Dashes', (t) => {
     'should not normalize dashes (node) if true'
   )
 
-  t.equal(
+  assert.equal(
     normalize(
       {
         type: 'WordNode',
@@ -456,7 +451,7 @@ test('Dashes', (t) => {
     'should not normalize dashes (node) if true and apos true'
   )
 
-  t.equal(
+  assert.equal(
     normalize(
       [
         {type: 'TextNode', value: 'Don'},
@@ -472,7 +467,7 @@ test('Dashes', (t) => {
     'should not normalize dashes (multiple nodes) if true'
   )
 
-  t.equal(
+  assert.equal(
     normalize(
       [
         {type: 'TextNode', value: 'Don'},
@@ -487,6 +482,4 @@ test('Dashes', (t) => {
     "don't block-level",
     'should not normalize dashes (multiple nodes) if true and apos true'
   )
-
-  t.end()
 })
