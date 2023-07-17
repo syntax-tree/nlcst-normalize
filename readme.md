@@ -46,14 +46,14 @@ npm install nlcst-normalize
 In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import {normalize} from 'https://esm.sh/nlcst-normalize@3'
+import {normalize} from 'https://esm.sh/nlcst-normalize@4'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import {normalize} from 'https://esm.sh/nlcst-normalize@3?bundle'
+  import {normalize} from 'https://esm.sh/nlcst-normalize@4?bundle'
 </script>
 ```
 
