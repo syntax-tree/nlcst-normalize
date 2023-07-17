@@ -1,10 +1,10 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import {normalize} from './index.js'
+import {normalize} from 'nlcst-normalize'
 
 test('Basic', async function (t) {
   await t.test('should expose the public api', async function () {
-    assert.deepEqual(Object.keys(await import('./index.js')).sort(), [
+    assert.deepEqual(Object.keys(await import('nlcst-normalize')).sort(), [
       'normalize'
     ])
   })
