@@ -37,7 +37,7 @@ word lists.
 ## Install
 
 This package is [ESM only][esm].
-In Node.js (version 14.14+ and 16.0+), install with [npm][]:
+In Node.js (version 16+), install with [npm][]:
 
 ```sh
 npm install nlcst-normalize
@@ -80,7 +80,7 @@ normalize({
 
 ## API
 
-This package exports the identifier [`normalize`][normalize].
+This package exports the identifier [`normalize`][api-normalize].
 There is no default export.
 
 ### `normalize(value[, options])`
@@ -92,9 +92,9 @@ lowercases alphabetical characters (`[A-Z]`).
 
 ###### Parameters
 
-*   `value` (`string`, [`Node`][node], or `Array<Node>`)
+*   `value` ([`Array<Node>`][node], `Node`, or `string`)
     — word
-*   `options` ([`Options`][options], optional)
+*   `options` ([`Options`][api-options], optional)
     — configuration
 
 ###### Returns
@@ -105,31 +105,28 @@ Normalized word (`string`).
 
 Configuration (TypeScript type).
 
-##### Fields
+###### Fields
 
-###### `allowApostrophes`
-
-Do not strip apostrophes (`'`) (`boolean`, default: `false`).
-
-The default is to remove apostrophes.
-
-###### `allowDashes`
-
-Do not strip hyphens (`-`) (`boolean`, default: `false`).
-
-The default is to remove the hyphen-minus character.
+*   `allowApostrophes` (`boolean`, default: `false`)
+    — do not strip apostrophes (`'`); the default is to remove apostrophes
+*   `allowDashes` (`boolean`, default: `false`)
+    — Do not strip hyphens (`-`); the default is to remove the hyphen-minus
+    character
 
 ## Types
 
 This package is fully typed with [TypeScript][].
-It exports the additional types [`Options`][options].
+It exports the additional types [`Options`][api-options].
 
 ## Compatibility
 
-Projects maintained by the unified collective are compatible with all maintained
+Projects maintained by the unified collective are compatible with maintained
 versions of Node.js.
-As of now, that is Node.js 14.14+ and 16.0+.
-Our projects sometimes work with older versions, but this is not guaranteed.
+
+When we cut a new major release, we drop support for unmaintained versions of
+Node.
+This means we try to keep the current release line, `nlcst-normalize@^3`,
+compatible with Node.js 12.
 
 ## Related
 
@@ -166,9 +163,9 @@ abide by its terms.
 
 [downloads]: https://www.npmjs.com/package/nlcst-normalize
 
-[size-badge]: https://img.shields.io/bundlephobia/minzip/nlcst-normalize.svg
+[size-badge]: https://img.shields.io/badge/dynamic/json?label=minzipped%20size&query=$.size.compressedSize&url=https://deno.bundlejs.com/?q=nlcst-normalize
 
-[size]: https://bundlephobia.com/result?p=nlcst-normalize
+[size]: https://bundlejs.com/?q=nlcst-normalize
 
 [sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
 
@@ -204,6 +201,6 @@ abide by its terms.
 
 [node]: https://github.com/syntax-tree/unist#node
 
-[normalize]: #normalizevalue-options
+[api-normalize]: #normalizevalue-options
 
-[options]: #options
+[api-options]: #options
